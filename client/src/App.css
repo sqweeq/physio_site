@@ -1,0 +1,114 @@
+/* import {clinic, physio, services, team } */
+*,
+html,
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  width: 100%;
+
+  overflow-x: hidden;
+}
+.container {
+  min-width: 100%;
+}
+.content {
+  height: 105vh;
+  margin: auto;
+  padding: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* main-container {
+  height: 400vh;
+} */
+.knee {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+    url(./data/knee-pain-1024x683.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 50vh;
+}
+
+.clinic {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+    url(./data/clinic.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.physio {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+    url(./data/physio.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.services {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+    url(./data/services.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.team {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+    url(./data/team.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.content-words {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  height: 100%;
+  color: rgb(255, 255, 255);
+}
+.fa fa-location-arrow {
+  transform: 2;
+}
+
+.booking-title,
+.nav-titles,
+.content > h1 {
+  overflow: hidden;
+}
+
+.nav-title {
+  width: 45%;
+}
+
+@media (min-width: 600px) {
+  .booking-container,
+  .location-container {
+    width: 60%;
+  }
+}
+@media (min-width: 800px) {
+  .booking-container,
+  .location-container {
+    width: 60%;
+  }
+}
+@media (min-width: 1000px) {
+  .booking-container,
+  .location-container {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  .booking-container,
+  .location-container {
+    width: 60%;
+  }
+}
+
+.image-container {
+  width: 20%;
+}
