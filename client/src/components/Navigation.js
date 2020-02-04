@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Navbar, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 export default class Navigation extends Component {
   render() {
     return (
@@ -10,16 +12,16 @@ export default class Navigation extends Component {
           </Navbar.Brand>
 
           <Nav className="mr-auto">
-            <Nav.Link href="home">Home</Nav.Link>
-            <Nav.Link href="about">About</Nav.Link>
-            <Nav.Link href="services">Services</Nav.Link>
-            <Nav.Link className="ml-2" href="faq">
+            <Link to="/home">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/services">Services</Link>
+            <Link className="ml-2" to="/faq">
               F.A.Q
-            </Nav.Link>
-            <Nav.Link href="contact">Contact</Nav.Link>
-            <Nav.Link className="ml-2 " href="shop">
+            </Link>
+            <Link to="/contact">Contact</Link>
+            <Link className="ml-2 " to="/shop">
               Shop
-            </Nav.Link>
+            </Link>
           </Nav>
         </Navbar>
       </div>

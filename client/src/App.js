@@ -7,6 +7,7 @@ import Faq from "./components/Faq";
 import Contact from "./components/Contact";
 import Shop from "./components/Shop";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import store from "./store";
 import { Provider } from "react-redux";
 import Register from "./components/Register";
@@ -21,21 +22,20 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <div className="container">
-          {/* <Homepage /> */}
-          <Switch>
-            <Route exact path="/" component={Homepage} />
-            <Route path="/home" component={Homepage} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/services" component={Services} />
-            <Route exact path="/faq" component={Faq} />
-            <Route exact path="/contact" component={Contact} />
-            <Route exact path="/shop" component={Shop} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-            <Route path="/shop#/payment" component={PaymentForm} />
-          </Switch>
-        </div>
+        {/* <Homepage /> */}
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          <Route path="/home" component={Homepage} />
+          <Route path="/about" component={About} />
+          <Route path="/services" component={Services} />
+          <Route path="/faq" component={Faq} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
+          <Route exact path="/shop" component={Shop} />
+
+          <Route path="/shop/payment" component={PaymentForm} />
+        </Switch>
       </Router>
     </Provider>
   );

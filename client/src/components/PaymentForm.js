@@ -1,7 +1,7 @@
 import React from "react";
 import Navigation from "./Navigation";
-
-export default class PaymentForm extends React.Component {
+import { Link, withRouter } from "react-router-dom";
+class PaymentForm extends React.Component {
   state = {
     cvc: "",
     expiry: "",
@@ -21,16 +21,19 @@ export default class PaymentForm extends React.Component {
   };
 
   render() {
-    console.log(this.props.history.location.state);
+    // console.log(this.props.location.state);
 
     return (
       <div className="container-fluid">
         <Navigation />
         <div className="">
+          <Link className="p-4" to="/shop">
+            &#x2190; Return to shop
+          </Link>
           <h1 className="text-center m-3 mx-auto">Payment Page</h1>
           <div className="card card-light w-75 m-auto p-5 mb-5 h-100">
             <form
-              autocomplete="new-password"
+              autoComplete="new-password"
               className="card-body"
               ref={c => (this.form = c)}
               onSubmit={this.handleSubmit}
@@ -48,7 +51,7 @@ export default class PaymentForm extends React.Component {
 
               <div className="form-group">
                 <input
-                  autocomplete="new-password"
+                  autoComplete="new-password"
                   type="tel"
                   name="number"
                   required
@@ -62,7 +65,7 @@ export default class PaymentForm extends React.Component {
               </div>
               <div className="form-group">
                 <input
-                  autocomplete="new-password"
+                  autoComplete="new-password"
                   type="text"
                   name="name"
                   required
@@ -76,7 +79,7 @@ export default class PaymentForm extends React.Component {
               <div className="row">
                 <div className="col-6 pr-3">
                   <input
-                    autocomplete="new-password"
+                    autoComplete="new-password"
                     type="tel"
                     name="expiry"
                     className="form-control mt-3 pl-2"
@@ -90,7 +93,7 @@ export default class PaymentForm extends React.Component {
                 <small>E.g: 03/21</small>
                 <div className="col-6">
                   <input
-                    autocomplete="new-password"
+                    autoComplete="new-password"
                     type="tel"
                     name="cvc"
                     className="form-control mt-3 pl-2"
@@ -104,9 +107,7 @@ export default class PaymentForm extends React.Component {
                 <small className="pb-3">E.g: 999</small>
               </div>
               <h4 className="border-top border-dark py-3">
-                Total: $
-                {/* {this.props.history.location.state.totalToPay &&
-                  this.props.history.location.state.totalToPay} */}
+                Total: ${this.props.location.state.toFixed(2)}
               </h4>
 
               <div className="form-actions">
@@ -120,3 +121,4 @@ export default class PaymentForm extends React.Component {
     );
   }
 }
+export default withRouter(PaymentForm);

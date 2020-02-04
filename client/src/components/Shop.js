@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navigation from "./Navigation";
 import AddProduct from "./AddProduct";
-import { Link, HashRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../actions/authActions";
 import ProductList from "./ProductList";
@@ -43,18 +43,18 @@ class Shop extends Component {
                 <h4 style={{ textTransform: "capitalize" }}>
                   Welcome {user.name}
                 </h4>
-                <HashRouter>
-                  <Button
-                    className="p-2 m-2 w-25"
-                    primary
-                    outline
-                    data-toggle="modal"
-                    data-target="#exampleModal"
-                  >
-                    View my cart
-                  </Button>
-                  <CartModal />
-                </HashRouter>
+                {/* <HashRouter> */}
+                <Button
+                  className="p-2 m-2 w-25"
+                  primary
+                  outline
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                >
+                  View my cart
+                </Button>
+                <CartModal />
+                {/* </HashRouter> */}
               </div>
 
               {/* <p>your id: {user._id}</p> */}
@@ -62,7 +62,7 @@ class Shop extends Component {
             <ProductList />
             <hr />
             <AddProduct className="pt-5" />
-            <div className="row m-4 pb-5 text-center">
+            <div className="row m-4 pb-5 mx-auto text-center w-25">
               <Link className="p-3" onClick={this.onLogout} to="/shop">
                 Logout
               </Link>

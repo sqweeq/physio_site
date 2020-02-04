@@ -8,7 +8,7 @@ import {
   addItem
 } from "../actions/itemActions";
 // import { Button } from "bootstrap-4-react";
-
+import { Dropdown, DropdownButton } from "react-bootstrap";
 // import CartModal from "./CartModal";
 class ProductList extends Component {
   componentDidMount() {
@@ -41,7 +41,17 @@ class ProductList extends Component {
         <h5 className=" mx-4 my-2 float-left">Featured </h5>
 
         <div className="border-bottom border-lg "></div>
-
+        <div className="w-50 h-100 m-5">
+          <DropdownButton
+            className="w-100 h-100"
+            id="dropdown-basic-button"
+            title="Dropdown button"
+          >
+            <Dropdown.Item>Action</Dropdown.Item>
+            <Dropdown.Item>Another action</Dropdown.Item>
+            <Dropdown.Item>Something else</Dropdown.Item>
+          </DropdownButton>
+        </div>
         <div className="row my-4 p-1 mx-auto justify-content-center container-fluid">
           {filteredItems &&
             filteredItems.map((item, i) =>

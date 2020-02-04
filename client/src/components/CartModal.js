@@ -7,12 +7,9 @@ import {
   addItem
 } from "../actions/itemActions";
 import { Modal, Button } from "bootstrap-4-react";
-import { Link } from "react-router-dom";
+
 import { withRouter } from "react-router-dom";
 class CartModal extends Component {
-  handleClick = () => {
-    this.props.history.push("/payment");
-  };
   render() {
     const { items } = this.props.item;
     const { user } = this.props.auth;
@@ -28,8 +25,14 @@ class CartModal extends Component {
     );
     let cartTotalTax = cartTotal * 0.15;
     let cartTotalWithTax = cartTotal && cartTotal + cartTotalTax;
-    console.log(cartTotalTax);
-    console.log(cartTotalWithTax);
+    // console.log(cartTotalTax);
+    // console.log(cartTotalWithTax);
+    const handleClick = () => {
+      this.props.history.push({
+        pathname: "/shop/payment",
+        state: cartTotalWithTax
+      });
+    };
     return (
       <div>
         <Modal id="exampleModal" fade>
@@ -96,16 +99,18 @@ class CartModal extends Component {
                 >
                   Close cart
                 </Button>
-                <Link
+                <Button
+                  data-dismiss="modal"
                   className="btn btn-primary btn-danger col-12 my-1 w-25 p-2"
-                  to={{
-                    pathname: "/payment",
-                    state: [cartTotalWithTax]
-                  }}
-                  onClick={this.handleClick}
+                  // to={{
+                  //   pathname: "/shop/payment",
+                  //   state: cartTotalWithTax
+                  // }}
+                  // replace
+                  onClick={() => handleClick(cartTotalWithTax)}
                 >
                   CHECKOUT
-                </Link>
+                </Button>
               </Modal.Footer>
             </Modal.Content>
           </Modal.Dialog>
