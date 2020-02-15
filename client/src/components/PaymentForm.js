@@ -9,7 +9,6 @@ class PaymentForm extends React.Component {
     name: "",
     number: ""
   };
-
   handleInputFocus = e => {
     this.setState({ focus: e.target.name });
   };
@@ -24,13 +23,13 @@ class PaymentForm extends React.Component {
     // console.log(this.props.location.state);
 
     return (
-      <div className="container-fluid">
+      <div className="container-fluid mb-5 pay-form">
         <Navigation />
-        <div className="">
-          <Link className="p-4" to="/shop">
+        <div className="mt-5">
+          <Link className="m-5 vh-50" to="/shop">
             &#x2190; Return to shop
           </Link>
-          <h1 className="text-center m-3 mx-auto">Payment Page</h1>
+          <h1 className="text-center m-5 mx-auto">Payment Page</h1>
           <div className="card card-light w-75 m-auto p-5 mb-5 h-100">
             <form
               autoComplete="new-password"
@@ -61,7 +60,7 @@ class PaymentForm extends React.Component {
                   onChange={this.handleInputChange}
                   onFocus={this.handleInputFocus}
                 />
-                <small>E.g.: 49.., 51.., 36.., 37..</small>
+                <small className="pt-1">E.g.: 49.., 51.., 36.., 37..</small>
               </div>
               <div className="form-group">
                 <input
@@ -75,7 +74,7 @@ class PaymentForm extends React.Component {
                   onFocus={this.handleInputFocus}
                 />
               </div>
-              <small>E.g: John Doe</small>
+              <small className="pt-1">E.g: John Doe</small>
               <div className="row">
                 <div className="col-6 pr-3">
                   <input
@@ -90,7 +89,7 @@ class PaymentForm extends React.Component {
                     onFocus={this.handleInputFocus}
                   />
                 </div>
-                <small>E.g: 03/21</small>
+                <small className="pt-1">E.g: 03/21</small>
                 <div className="col-6">
                   <input
                     autoComplete="new-password"
@@ -104,7 +103,7 @@ class PaymentForm extends React.Component {
                     onFocus={this.handleInputFocus}
                   />
                 </div>
-                <small className="pb-3">E.g: 999</small>
+                <small className="pt-1 pb-3">E.g: 999</small>
               </div>
               <h4 className="border-top border-dark py-3">
                 Total: ${this.props.location.state.toFixed(2)}
@@ -116,7 +115,7 @@ class PaymentForm extends React.Component {
             </form>
           </div>
         </div>
-        <footer className="h-25 m-4"></footer>
+        <footer className="h-25 m-4 border-bottom"></footer>
       </div>
     );
   }

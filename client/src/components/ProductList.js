@@ -5,15 +5,41 @@ import {
   deleteItem,
   addItemToCart,
   getItems,
-  addItem
+  addItem,
+  addItemToGuestCart,
+  getGuestCartItems
 } from "../actions/itemActions";
-// import { Button } from "bootstrap-4-react";
-import { Dropdown, DropdownButton } from "react-bootstrap";
-// import CartModal from "./CartModal";
+import shortid from "shortid";
+
 class ProductList extends Component {
+  state = {
+    itemToShow: []
+  };
   componentDidMount() {
-    this.props.getItems();
+    this.props.getGuestCartItems();
   }
+  showAdded(i) {
+    this.setState({ itemToShow: [...this.state.itemToShow, i] }, () => {
+      console.log(this.state);
+
+      setInterval(() => {
+        this.setState({
+          itemToShow: this.state.itemToShow.filter(item => item !== i)
+        });
+      }, 3500);
+    });
+  }
+  onDeleteItem = id => {
+    this.props.deleteItem(id);
+  };
+
+  onAddToGuestCart = item => {
+    item.guestItemID =
+      shortid.generate() + String(Math.floor(Math.random() * 30));
+
+    this.props.addItemToGuestCart(item);
+    this.props.getGuestCartItems();
+  };
 
   onAddToCart = (item, user) => {
     const newItem = {
@@ -22,64 +48,81 @@ class ProductList extends Component {
       category: item.category,
       price: item.price,
       userRefID: user._id,
-      _id: item._id,
+
       productImage: item.productImage
     };
+
     this.props.addItemToCart(newItem);
   };
 
   render() {
     const { items } = this.props.item;
     const { user } = this.props.auth;
-
+    const { isAuthenticated } = this.props.auth;
     const filteredItems = items.filter(item => item.userRefID === "");
+
     return (
       <div>
-        <h2 className=" mt-5 mb-2 text-center">
-          Shop : {filteredItems.length} Products{" "}
+        <h2 className="mt-4 mb-2 text-center">
+          Shop : {filteredItems.length} Products
         </h2>
-        <h5 className=" mx-4 my-2 float-left">Featured </h5>
-
-        <div className="border-bottom border-lg "></div>
-        <div className="w-50 h-100 m-5">
-          <DropdownButton
-            className="w-100 h-100"
-            id="dropdown-basic-button"
-            title="Dropdown button"
-          >
-            <Dropdown.Item>Action</Dropdown.Item>
-            <Dropdown.Item>Another action</Dropdown.Item>
-            <Dropdown.Item>Something else</Dropdown.Item>
-          </DropdownButton>
-        </div>
-        <div className="row my-4 p-1 mx-auto justify-content-center container-fluid">
+        <h5 className="mx-4 my-2 float-left">Featured </h5>
+        <div className="row my-4 mx-auto justify-content-center container-fluid">
           {filteredItems &&
             filteredItems.map((item, i) =>
               item.userRefID ? null : (
                 <div
-                  className="card col-sm-3 col-md-3 col-lg-2 m-2 p-1 d-flex flex-column justify-content-between "
+                  className="card card-group col-3 col-sm-3 col-md-2 col-lg-2 m-2 p-1 d-flex flex-column justify-content-between mh-100"
                   key={i}
                 >
-                  <div className="">
-                    <img className="p-3" src={item.productImage} alt="" />
-                  </div>
+                  <img
+                    className="p-3 img-fluid w-100 mx-auto"
+                    src={item.productImage}
+                    alt=""
+                  />
                   <div className="text-center pt-2">
-                    <h6 className="mx-auto pb-2 pt-4">{item.name}</h6>
+                    <h6 className="mx-auto mb-2">{item.name}</h6>
+                    {/* <p>{item._id}</p> */}
                     {/* <p className="font-weight-light">
                         Description: {item.description}
                       </p> */}
                     {/* <p>Category: {item.category}</p> */}
-                    <p className="mx-auto pb-4">${item.price}</p>
+                    <p className="mx-auto">${item.price}</p>
                   </div>
-
-                  <div className="text-center p-3 ">
-                    <button
-                      type="button"
-                      className="btn btn-primary p-2 w-75 align-self-end"
-                      onClick={() => this.onAddToCart(item, user)}
-                    >
-                      Add to cart
-                    </button>
+                  <div className="text-center container mt-3 mb-4">
+                    {isAuthenticated === true ? (
+                      <button
+                        type="button"
+                        className={
+                          "btn p-2 w-75 " +
+                          (this.state.itemToShow.includes(i)
+                            ? "btn-outline-success"
+                            : "btn-outline-info")
+                        }
+                        onClick={() => {
+                          this.showAdded(i);
+                          this.onAddToCart(item, user);
+                        }}
+                      >
+                        {this.state.itemToShow.includes(i) ? "Saved" : "Add"}
+                      </button>
+                    ) : (
+                      <button
+                        type="button"
+                        className={
+                          "btn p-1 w-75 " +
+                          (this.state.itemToShow.includes(i)
+                            ? "btn-outline-success"
+                            : "btn-outline-info")
+                        }
+                        onClick={() => {
+                          this.showAdded(i);
+                          this.onAddToGuestCart(item);
+                        }}
+                      >
+                        {this.state.itemToShow.includes(i) ? "Saved" : "Add"}
+                      </button>
+                    )}
                     {/* <button onClick={() => this.onDeleteItem(item._id)}>
                       Delete{" "}
                     </button> */}
@@ -100,5 +143,7 @@ export default connect(mapStateToProps, {
   deleteItem,
   addItemToCart,
   addItem,
-  getItems
+  getItems,
+  addItemToGuestCart,
+  getGuestCartItems
 })(ProductList);

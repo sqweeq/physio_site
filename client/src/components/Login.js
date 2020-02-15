@@ -3,6 +3,7 @@ import Navigation from "./Navigation";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../actions/authActions";
+import { getItems } from "../actions/itemActions";
 class Login extends Component {
   state = {
     email: "",
@@ -37,6 +38,7 @@ class Login extends Component {
     };
     // attempt to login
     this.props.login(user, this.props.history);
+    this.props.getItems();
     // this.props.history.push("/");
     // this.props.();
   };
@@ -104,4 +106,4 @@ const mapStateToProps = state => ({
   error: state.error
 });
 
-export default connect(mapStateToProps, { login })(withRouter(Login));
+export default connect(mapStateToProps, { login, getItems })(withRouter(Login));

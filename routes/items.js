@@ -45,7 +45,8 @@ router.post("/", auth, upload.single("productImage"), (req, res) => {
     category: req.body.category,
     userRefID: req.body.userRefID,
     showMore: req.body.showMore,
-    productImage: req.file.path
+    productImage: req.file.path,
+    guestItemID: req.body.guestItemID
   });
   newItem
     .save()
@@ -64,7 +65,8 @@ router.post("/cart", auth, (req, res) => {
     category: req.body.category,
     userRefID: req.body.userRefID,
     showMore: req.body.showMore,
-    productImage: req.body.productImage
+    productImage: req.body.productImage,
+    guestItemID: req.body.guestItemID
   });
   newItem
     .save()

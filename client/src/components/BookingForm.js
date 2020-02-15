@@ -23,7 +23,10 @@ export default class BookingForm extends Component {
               placeholder="Enter email"
             />
           </Form.Group>
-          <Form.Group className="py-2" controlId="formBasicNumber">
+          <Form.Group
+            className="contact-form-number py-2"
+            controlId="formBasicNumber"
+          >
             <Form.Label>Contact Number</Form.Label>
             <Form.Control
               className="pl-2"
@@ -31,7 +34,7 @@ export default class BookingForm extends Component {
               placeholder="Enter contact number"
             />
           </Form.Group>
-          <Form.Group className="py-3 pb-5" controlId="formBasicMessage">
+          <Form.Group className="py-2 pb-5" controlId="formBasicMessage">
             <Form.Label>Message</Form.Label>
             <Form.Control
               className="pl-2"
@@ -45,7 +48,7 @@ export default class BookingForm extends Component {
             controlId="formBasicCheckbox"
           >
             <Form.Check className="label-default" type="checkbox" />
-            <p>Send updates on latest news and offers!</p>
+            <p>Send updates on latest news and offers</p>
           </Form.Group>
           <Form.Group
             className="flex flex-row pb-4"
@@ -55,7 +58,7 @@ export default class BookingForm extends Component {
             <p>I accept the terms and conditions</p>
           </Form.Group>
           <Button
-            className="py-2 align-center "
+            className="py-3 px-5 align-center "
             variant="primary"
             type="submit"
           >

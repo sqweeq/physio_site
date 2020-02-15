@@ -25,6 +25,10 @@
     "mdbreact": "^4.25.0",
     "mongoose": "^5.8.9",
     "multer": "^1.4.2",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "react-reveal": "^1.2.2",
+    "react-uuid": "^1.0.2",
+    "save": "^2.4.0",
+    "shortid": "^2.2.15"
   }
 }

@@ -1,28 +1,47 @@
 import React, { Component } from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 export default class Navigation extends Component {
   render() {
     return (
-      <div>
-        <Navbar className="py-3 px-3" bg="light" variant="light">
-          <Navbar.Brand className="nav-title" href="home">
+      <div className="nav-container">
+        <Navbar
+          collapseOnSelect
+          expand="md"
+          className="py-3 px-3 h-100"
+          bg="white"
+          variant="light"
+        >
+          <Navbar.Brand
+            className="w-25
+          "
+            href="home"
+          >
             Physio Revolution
           </Navbar.Brand>
-
-          <Nav className="mr-auto">
-            <Link to="/home">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/services">Services</Link>
-            <Link className="ml-2" to="/faq">
-              F.A.Q
-            </Link>
-            <Link to="/contact">Contact</Link>
-            <Link className="ml-2 " to="/shop">
-              Shop
-            </Link>
-          </Nav>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto text-primary nav-link-colour nav-options my-2 w-100">
+              <Nav.Link className="link mx-2 my-1" href="home">
+                Home
+              </Nav.Link>
+              <Nav.Link className="link mx-2 my-1" href="about">
+                About
+              </Nav.Link>
+              <Nav.Link className="link mx-2 my-1" href="services">
+                Services
+              </Nav.Link>
+              <Nav.Link className="link mx-2 my-1" href="faq">
+                F.A.Q
+              </Nav.Link>
+              <Nav.Link className="link mx-2 my-1" href="contact">
+                Contact
+              </Nav.Link>
+              <Nav.Link className="link mx-2 my-1" href="shop">
+                Shop
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
         </Navbar>
       </div>
     );

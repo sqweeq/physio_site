@@ -51,7 +51,8 @@ class AddProduct extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="pt-3 p-5 mx-auto">
+        <h1 className="p-5 text-center">Add Product</h1>
         <form
           noValidate
           onSubmit={this.handleSubmit}

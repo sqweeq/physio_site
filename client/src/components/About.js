@@ -6,7 +6,10 @@ export default class About extends Component {
     return (
       <div>
         <Navigation />
-        <div>about page</div>
+
+        <div className="content weights">
+          <h1 className="text-white p-5 text-center">About Us</h1>
+        </div>
       </div>
     );
   }

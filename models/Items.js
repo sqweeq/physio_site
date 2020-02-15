@@ -20,7 +20,8 @@ const ItemSchema = new Schema({
   //   default: false
   // },
   userRefID: { type: String, default: "" },
-  productImage: { type: String }
+  productImage: { type: String },
+  guestItemID: { type: String }
   // image: { type: String },
   // subcategory: {
   //   type: String

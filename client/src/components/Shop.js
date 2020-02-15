@@ -14,17 +14,42 @@ class Shop extends Component {
     this.props.logout();
   };
 
-  // componentDidMount() {
-  //   this.props.getItems();
-  // }
+  componentDidMount() {
+    this.props.getItems();
+  }
 
   render() {
-    const { items } = this.props.item;
-
-    const filteredItems = items.filter(item => item.userRefID === "");
+    // const { items } = this.props.item;
     const { user } = this.props.auth;
     const { isAuthenticated } = this.props.auth;
-    console.log(filteredItems.length);
+
+    // if (isAuthenticated) {
+    //   let existingGuestCart = JSON.parse(localStorage.getItem("guestCart"));
+    //   // added userID to guest cart items
+    //   let newItems =
+    //     existingGuestCart &&
+    //     existingGuestCart.filter(item => {
+    //       if (item.userRefID !== user._id) {
+    //         item.userRefID = user._id;
+    //       }
+    //       return item;
+    //     });
+    //   let userLocalCompare =
+    //     newItems &&
+    //     newItems.filter(guestItem => {
+    //       return items.some(
+    //         userItem =>
+    //           userItem._id === guestItem._id &&
+    //           guestItem.guestItemID !== userItem.guestItemID
+    //       );
+    //     });
+    //   console.log(userLocalCompare);
+    //   // this.props.addItemToCart(userLocalCompare);
+    // }
+
+    // const filteredItems = items.filter(item => item.userRefID === "");
+
+    // console.log(filteredItems.length);
 
     return (
       <div className="w-100">
@@ -43,9 +68,9 @@ class Shop extends Component {
                 <h4 style={{ textTransform: "capitalize" }}>
                   Welcome {user.name}
                 </h4>
-                {/* <HashRouter> */}
+
                 <Button
-                  className="p-2 m-2 w-25"
+                  className="p-1 m-2 w-25"
                   primary
                   outline
                   data-toggle="modal"
@@ -54,22 +79,38 @@ class Shop extends Component {
                   View my cart
                 </Button>
                 <CartModal />
-                {/* </HashRouter> */}
               </div>
 
               {/* <p>your id: {user._id}</p> */}
             </div>
             <ProductList />
             <hr />
-            <AddProduct className="pt-5" />
+            <AddProduct />
             <div className="row m-4 pb-5 mx-auto text-center w-25">
-              <Link className="p-3" onClick={this.onLogout} to="/shop">
+              <Link
+                className="p-3 h3 text-primary"
+                onClick={this.onLogout}
+                to="/shop"
+              >
                 Logout
               </Link>
             </div>
           </div>
         ) : (
           <div className="overflow-hidden">
+            <div className="p-1 mt-5 text-center">
+              <h3>Welcome guest!</h3>
+              <Button
+                className="p-2 m-2 w-25"
+                primary
+                outline
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                View my cart
+              </Button>
+              <CartModal />
+            </div>
             <ProductList />
             <hr />
             <div className="text-center d-flex flex-column w-25 mx-auto m-5">

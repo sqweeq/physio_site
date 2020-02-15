@@ -14,6 +14,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import { loadUser } from "./actions/authActions";
 import PaymentForm from "./components/PaymentForm";
+
 function App() {
   useEffect(() => {
     store.dispatch(loadUser());
@@ -22,7 +23,6 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        {/* <Homepage /> */}
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/home" component={Homepage} />
