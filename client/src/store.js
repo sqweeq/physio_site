@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === "production") {
     compose(applyMiddleware(...middleware))
   );
 } else {
-  const store = createStore(
+  store = createStore(
     rootReducer,
     initialState,
     compose(composeEnhancer(applyMiddleware(thunk)))
