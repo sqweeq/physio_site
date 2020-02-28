@@ -6,17 +6,18 @@ const initialState = {};
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-if (process.env.NODE_ENV === "production") {
-  store = createStore(
-    rootReducer,
-    initialState,
-    compose(applyMiddleware(...middleware))
-  );
-} else {
-  store = createStore(
-    rootReducer,
-    initialState,
-    compose(composeEnhancer(applyMiddleware(thunk)))
-  );
-}
+const store = createStore(
+  rootReducer,
+  initialState,
+
+  process.env.NODE_ENV === "production"
+    ? compose(applyMiddleware(thunk))
+    : compose(composeEnhancer(applyMiddleware(thunk)))
+);
+// :
+//   const store = createStore(
+//     rootReducer,
+//     initialState,
+//   );
+
 export default store;
