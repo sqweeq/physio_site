@@ -114,17 +114,27 @@ class CartModal extends Component {
 
     const loggedCheckout = () => {
       this.props.history.push({
-        pathname: "/shop/payment",
+        pathname: "/payment",
         state: cartTotalWithTax
       });
     };
 
     const guestCheckout = () => {
       this.props.history.push({
-        pathname: "/shop/payment",
+        pathname: "/payment",
         state: cartTotalWithTax
       });
     };
+    let unique = [
+      ...new Set(cartFilteredItems && cartFilteredItems.map(item => item.name))
+    ];
+    // const duplicateCart = unique.map(item => [
+    //   item,
+    //   unique.filter(str => str === item).length
+    // ]);
+    console.log(unique);
+    // console.log(duplicateCart);
+
     return (
       <div>
         <Modal id="exampleModal" fade>
@@ -171,6 +181,7 @@ class CartModal extends Component {
                         {/* <h5>GuestID: {item.guestItemID && item.guestItemID}</h5> */}
                         <h4 className="pb-3">{item.name}</h4>
                         <p className="pb-3">Description: {item.description}</p>
+
                         {/* <p>Category: {item.category}</p> */}
                         <p className="pb-3">Price: ${item.price}</p>
                         <div className="text-center">

@@ -8,7 +8,7 @@ export default class Navigation extends Component {
         <Navbar
           collapseOnSelect
           expand="md"
-          className="py-3 px-3 h-100"
+          className="py-3 px-3 h-100 navbar-resp"
           bg="white"
           variant="light"
         >
@@ -37,7 +37,7 @@ export default class Navigation extends Component {
               <Nav.Link className="link mx-2 my-1" href="contact">
                 Contact
               </Nav.Link>
-              <Nav.Link className="link mx-2 my-1" href="shop">
+              <Nav.Link className="link mx-2 my-1 pr-3" href="shop">
                 Shop
               </Nav.Link>
             </Nav>

@@ -20,9 +20,7 @@ class ProductList extends Component {
   }
   showAdded(i) {
     this.setState({ itemToShow: [...this.state.itemToShow, i] }, () => {
-      console.log(this.state);
-
-      setInterval(() => {
+      setTimeout(() => {
         this.setState({
           itemToShow: this.state.itemToShow.filter(item => item !== i)
         });
@@ -32,7 +30,7 @@ class ProductList extends Component {
   onDeleteItem = id => {
     this.props.deleteItem(id);
   };
-
+  // add to guest cart localstorage
   onAddToGuestCart = item => {
     item.guestItemID =
       shortid.generate() + String(Math.floor(Math.random() * 30));
@@ -41,6 +39,7 @@ class ProductList extends Component {
     this.props.getGuestCartItems();
   };
 
+  // add to logged in user cart
   onAddToCart = (item, user) => {
     const newItem = {
       name: item.name,
@@ -48,7 +47,6 @@ class ProductList extends Component {
       category: item.category,
       price: item.price,
       userRefID: user._id,
-
       productImage: item.productImage
     };
 
@@ -82,11 +80,7 @@ class ProductList extends Component {
                   />
                   <div className="text-center pt-2">
                     <h6 className="mx-auto mb-2">{item.name}</h6>
-                    {/* <p>{item._id}</p> */}
-                    {/* <p className="font-weight-light">
-                        Description: {item.description}
-                      </p> */}
-                    {/* <p>Category: {item.category}</p> */}
+
                     <p className="mx-auto">${item.price}</p>
                   </div>
                   <div className="text-center container mt-3 mb-4">

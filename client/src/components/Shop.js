@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Navigation from "./Navigation";
-import AddProduct from "./AddProduct";
+// import AddProduct from "./AddProduct";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../actions/authActions";
@@ -57,7 +57,7 @@ class Shop extends Component {
         <div className="content knee">
           <div className="content-words">
             <h1 className="font-weight-bolder">Kickstart your recovery</h1>
-            <h4>Free shipping if you spend over $100</h4>
+            <h4>Free shipping when you spend over $100</h4>
           </div>
         </div>
 
@@ -85,7 +85,7 @@ class Shop extends Component {
             </div>
             <ProductList />
             <hr />
-            <AddProduct />
+            {/* <AddProduct /> */}
             <div className="row m-4 pb-5 mx-auto text-center w-25">
               <Link
                 className="p-3 h3 text-primary"

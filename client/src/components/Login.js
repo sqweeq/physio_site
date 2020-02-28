@@ -38,7 +38,7 @@ class Login extends Component {
     };
     // attempt to login
     this.props.login(user, this.props.history);
-    this.props.getItems();
+
     // this.props.history.push("/");
     // this.props.();
   };
@@ -46,15 +46,15 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <div className="row">
+        <div className=" mb-5">
           <Navigation />
-          <Link className="p-4" to="/shop">
-            &#x2190; Return to shop
-          </Link>
         </div>
+        <Link className="h-25 m-5 pt-5" to="/shop">
+          &#x2190; Return to shop
+        </Link>
 
         <form noValidate onSubmit={this.handleSubmit}>
-          <h1 className="text-center pt-4">Login page</h1>
+          <h1 className="text-center pt-5">Login page</h1>
 
           <div className="pb-5 px-5 mx-auto">
             <div className="form-group p-3">
@@ -87,7 +87,7 @@ class Login extends Component {
               </span>
             ) : null}
             <div className="p-3">
-              <button type="submit" className="btn btn-primary p-2">
+              <button type="submit" className="btn btn-primary p-3">
                 Submit
               </button>
             </div>

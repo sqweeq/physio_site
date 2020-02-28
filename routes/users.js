@@ -13,13 +13,14 @@ router.post("/", (req, res) => {
   if (!name | !email | !password) {
     return res.status(400).json({ msg: "Please enter all fields" });
   }
-  if (email.length < 6) {
-    return res
-      .status(400)
-      .json({
-        msg:
-          "Email must be longer than 6 characters and includes @ and ending with .com"
-      });
+
+  const regexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  if (email.length < 6 || regexp.test(email) === false) {
+    return res.status(400).json({
+      msg:
+        "Email must be longer than 6 characters and includes @ and ending with .com"
+    });
   }
   if (password.length < 6) {
     return res

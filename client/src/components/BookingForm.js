@@ -6,7 +6,9 @@ export default class BookingForm extends Component {
     return (
       <div className="px-5 pt-3 mx-auto booking-container">
         <Form>
-          <h1 className="my-3 mt-5 text-center booking-title">Contact us</h1>
+          <h1 className="my-3 mt-5 text-center booking-title">
+            Have a question?
+          </h1>
           <Form.Group className="py-2 pt-3" controlId="formBasicName">
             <Form.Label>Name</Form.Label>
             <Form.Control
@@ -44,18 +46,18 @@ export default class BookingForm extends Component {
           </Form.Group>
 
           <Form.Group
-            className="flex flex-row pb-4"
+            className="d-flex flex-row pl-3"
             controlId="formBasicCheckbox"
           >
             <Form.Check className="label-default" type="checkbox" />
-            <p>Send updates on latest news and offers</p>
+            <p className="pl-1">Send updates on latest news and offers</p>
           </Form.Group>
           <Form.Group
-            className="flex flex-row pb-4"
+            className="d-flex flex-row pb-1 pl-3"
             controlId="formBasicTermConditions"
           >
             <Form.Check className="label-default" type="checkbox" />
-            <p>I accept the terms and conditions</p>
+            <p className="pl-1">I accept the terms and conditions</p>
           </Form.Group>
           <Button
             className="py-3 px-5 align-center "

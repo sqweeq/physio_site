@@ -43,18 +43,26 @@ class Register extends Component {
       password
     };
     this.props.register(newUser, this.props.history);
+
     console.log(newUser);
   };
+
   validateEmail(email) {
     const regexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regexp.test(email);
   }
+
   render() {
     return (
       <div className="overflow-hidden">
-        <Navigation />
+        <div className="mb-5">
+          <Navigation />
+        </div>
+        <Link className="h-25 m-5 pt-5" to="/shop">
+          &#x2190; Return to shop
+        </Link>
         <form noValidate onSubmit={this.handleSubmit}>
-          <h1 className="text-center pt-5">Register</h1>
+          <h1 className="text-center pt-5 pb-3">Register</h1>
 
           <div className="pb-5 pt-3 px-5 mx-auto">
             <div className="form-group pb-2 px-2">
@@ -66,16 +74,16 @@ class Register extends Component {
                 type="text"
                 className={
                   "form-control pl-2 " +
-                  (this.state.name.length && this.state.name.length >= 6
-                    ? "is-valid"
-                    : "is-invalid")
+                  (this.state.name.length &&
+                    this.state.name.length >= 6 &&
+                    "is-valid" /*: "is-invalid"*/)
                 }
                 placeholder="Enter name"
                 onChange={this.handleChange}
               />
-              <div className="invalid-feedback pt-1">
+              {/* <div className="invalid-feedback pt-1">
                 Name must be longer than 6 characters
-              </div>
+              </div> */}
             </div>
             <div className="form-group p-2">
               <label className="pb-1" htmlFor="exampleInputEmail">
@@ -86,16 +94,15 @@ class Register extends Component {
                 type="email"
                 className={
                   "form-control pl-2 " +
-                  (this.validateEmail(this.state.email) === true
-                    ? "is-valid"
-                    : "is-invalid")
+                  (this.validateEmail(this.state.email) === true &&
+                    "is-valid" /*: "is-invalid"*/)
                 }
                 placeholder="Enter email"
                 onChange={this.handleChange}
               />
-              <div className="invalid-feedback pt-1">Email must be valid</div>
+              {/* <div className="invalid-feedback pt-1">Email must be valid</div> */}
             </div>
-            <div className="form-group p-2">
+            <div className="form-group p-2 mb-3">
               <label className="pb-1" htmlFor="exampleInputPassword">
                 Password
               </label>
@@ -104,16 +111,16 @@ class Register extends Component {
                 type="password"
                 className={
                   "form-control pl-2 " +
-                  (this.state.password.length && this.state.password.length >= 6
-                    ? "is-valid"
-                    : "is-invalid")
+                  (this.state.password.length &&
+                    this.state.password.length >= 6 &&
+                    "is-valid" /*: "is-invalid"*/)
                 }
                 placeholder="Enter password"
                 onChange={this.handleChange}
               />
-              <div className="invalid-feedback pt-1">
+              {/* <div className="invalid-feedback pt-1">
                 Password must be longer than 6 characters
-              </div>
+              </div> */}
             </div>
             {this.state.msg ? (
               <span className="pl-2 text-danger text-center">
@@ -127,7 +134,7 @@ class Register extends Component {
               </button>
             </div>
             <footer className="py-5">
-              <Link to="/login" className="p-3">
+              <Link to="/login" className="p-2">
                 Already a user?
               </Link>
             </footer>

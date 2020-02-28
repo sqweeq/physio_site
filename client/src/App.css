@@ -3,7 +3,7 @@
 html,
 body {
   font-family: "Roboto Condensed", sans-serif;
-  margin: 0px !important;
+  margin: 0px;
   padding: 0px !important;
   box-sizing: border-box;
 }
@@ -19,6 +19,12 @@ body {
   flex-direction: column;
   align-items: center;
   /* overflow-x: hidden; */
+}
+.opening-page {
+  height: 125vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .knee {
@@ -37,6 +43,7 @@ body {
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.9);
   background-position: right 10px top;
+  height: 150vh;
 }
 .clinic {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
@@ -153,4 +160,21 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .modal-closing {
   width: 10%;
+}
+.scroll-top {
+  overflow-x: hidden;
+}
+.img-self {
+  max-width: 260px !important;
+  min-width: 200px !important;
+}
+.img-services {
+  max-width: 200px !important;
+  min-height: 200px !important;
+}
+
+.carousel-inner > .item {
+  -webkit-transition: 0s !important;
+  -o-transition: 0s !important;
+  transition: 0s !important;
 }

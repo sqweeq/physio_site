@@ -5,7 +5,9 @@ export default class Contact extends Component {
     return (
       <div>
         <Navigation />
-        <div>contact page</div>
+        <div className="content weights h-auto text-white">
+          <h1 className="pt-5 border-bottom">Book now!</h1>
+        </div>
       </div>
     );
   }

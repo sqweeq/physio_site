@@ -43,12 +43,15 @@ export const register = ({ name, email, password }, history) => dispatch => {
     .post("/api/users", body, config)
 
     .then(res =>
-      dispatch({
-        type: REGISTER_SUCCESS,
-        payload: res.data
-      })
+      dispatch(
+        {
+          type: REGISTER_SUCCESS,
+          payload: res.data
+        },
+
+        history.push("/login") // re-direct to login on successful register
+      )
     )
-    .then(response => history.push("/login")) // re-direct to login on successful register
 
     .catch(err => {
       dispatch({
