@@ -57,7 +57,7 @@ class ProductList extends Component {
     const { items } = this.props.item;
     const { user } = this.props.auth;
     const { isAuthenticated } = this.props.auth;
-    const filteredItems = items.filter(item => item.userRefID === "");
+    const filteredItems = items && items.filter(item => item.userRefID === "");
 
     return (
       <div>
