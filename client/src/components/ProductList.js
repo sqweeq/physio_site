@@ -57,8 +57,8 @@ class ProductList extends Component {
     const { items } = this.props.item;
     const { user } = this.props.auth;
     const { isAuthenticated } = this.props.auth;
-    // const filteredItems = items && items.filter(item => item.userRefID === "");
-    const filteredItems = items;
+    const filteredItems = items && items.filter(item => item.userRefID === "");
+
     return (
       <div>
         <h2 className="mt-4 mb-2 text-center">
