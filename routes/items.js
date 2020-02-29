@@ -27,7 +27,7 @@ const upload = multer({
   // fileFilter: fileFilter
 });
 // route get api/items, get all items
-router.get("/", (req, res) => {
+router.get("https://physiorevolution.herokuapp.com/api/items", (req, res) => {
   Item.find()
     .sort({ date: -1 })
     .then(items => res.json(items));
