@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a00a573e.chunk.css",
+    "main.js": "/static/js/main.6e2d663c.chunk.js",
+    "main.js.map": "/static/js/main.6e2d663c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.b568e6ee.js",
+    "runtime-main.js.map": "/static/js/runtime-main.b568e6ee.js.map",
+    "static/css/2.7a4ca75f.chunk.css": "/static/css/2.7a4ca75f.chunk.css",
+    "static/js/2.2975fb85.chunk.js": "/static/js/2.2975fb85.chunk.js",
+    "static/js/2.2975fb85.chunk.js.map": "/static/js/2.2975fb85.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.8d007fa9504bb51841c4840553923a67.js": "/precache-manifest.8d007fa9504bb51841c4840553923a67.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.7a4ca75f.chunk.css.map": "/static/css/2.7a4ca75f.chunk.css.map",
+    "static/css/main.a00a573e.chunk.css.map": "/static/css/main.a00a573e.chunk.css.map",
+    "static/js/2.2975fb85.chunk.js.LICENSE": "/static/js/2.2975fb85.chunk.js.LICENSE",
+    "static/media/IMG_1341.jpg": "/static/media/IMG_1341.b3375738.jpg",
+    "static/media/mdb.css": "/static/media/arrow_right.8ef6a08c.svg",
+    "static/media/App.css": "/static/media/weights-on-gym-floor.30af4749.jpg",
+    "static/media/all.min.css": "/static/media/fa-solid-900.f6121be5.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b568e6ee.js",
+    "static/css/2.7a4ca75f.chunk.css",
+    "static/js/2.2975fb85.chunk.js",
+    "static/css/main.a00a573e.chunk.css",
+    "static/js/main.6e2d663c.chunk.js"
+  ]
+}
