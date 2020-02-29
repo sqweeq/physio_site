@@ -76,16 +76,16 @@ class CartModal extends Component {
       });
 
     // isAuthenticated && this.props.addItemToCart(userLocalCompare);
-    console.log(
-      userLocalCompare && userLocalCompare.map(item => item.guestItemID)
-    );
+    // console.log(
+    //   userLocalCompare && userLocalCompare.map(item => item.guestItemID)
+    // );
 
-    console.log(
-      items &&
-        items
-          .filter(item => item.guestItemID !== undefined && item.guestItemID)
-          .map(item => item.guestItemID)
-    );
+    // console.log(
+    //   items &&
+    //     items
+    //       .filter(item => item.guestItemID !== undefined && item.guestItemID)
+    //       .map(item => item.guestItemID)
+    // );
   }
 
   render() {
@@ -132,7 +132,7 @@ class CartModal extends Component {
     //   item,
     //   unique.filter(str => str === item).length
     // ]);
-    console.log(unique);
+    // console.log(unique);
     // console.log(duplicateCart);
 
     return (
