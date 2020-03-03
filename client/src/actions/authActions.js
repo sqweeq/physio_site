@@ -72,7 +72,6 @@ export const login = ({ email, password }, history) => dispatch => {
   };
   // request body
   const body = JSON.stringify({ email, password });
-  // let existingGuestCart = JSON.parse(localStorage.getItem("guestCart")) || [];
 
   axios
     .post("/api/auth", body, config)

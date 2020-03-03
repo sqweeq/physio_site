@@ -23,34 +23,6 @@ class Shop extends Component {
     const { user } = this.props.auth;
     const { isAuthenticated } = this.props.auth;
 
-    // if (isAuthenticated) {
-    //   let existingGuestCart = JSON.parse(localStorage.getItem("guestCart"));
-    //   // added userID to guest cart items
-    //   let newItems =
-    //     existingGuestCart &&
-    //     existingGuestCart.filter(item => {
-    //       if (item.userRefID !== user._id) {
-    //         item.userRefID = user._id;
-    //       }
-    //       return item;
-    //     });
-    //   let userLocalCompare =
-    //     newItems &&
-    //     newItems.filter(guestItem => {
-    //       return items.some(
-    //         userItem =>
-    //           userItem._id === guestItem._id &&
-    //           guestItem.guestItemID !== userItem.guestItemID
-    //       );
-    //     });
-    //   console.log(userLocalCompare);
-    //   // this.props.addItemToCart(userLocalCompare);
-    // }
-
-    // const filteredItems = items.filter(item => item.userRefID === "");
-
-    // console.log(filteredItems.length);
-
     return (
       <div className="w-100">
         <Navigation />

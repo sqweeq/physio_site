@@ -12,16 +12,7 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  items: [
-    // {
-    //   name: "",
-    //   description: "",
-    //   category: "",
-    //   price: null,
-    //   userRefID: "",
-    //   productImage: ""
-    // }
-  ],
+  items: [],
   loading: false
 };
 
@@ -77,21 +68,6 @@ export default function(state = initialState, action) {
         loading: true
       };
 
-    // case SHOW_MORE:
-    //   // const { showMore } = state.items;
-
-    //   return {
-    //     ...state,
-    //     items: state.items.map(item => {
-    //       if (item._id === action.payload)
-    //         return {
-    //           ...item,
-    //           showMore: !item.showMore
-    //         };
-
-    //       return item;
-    //     })
-    //   };
     default:
       return state;
   }

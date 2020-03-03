@@ -6,7 +6,6 @@ import {
   ADD_ITEM_TO_CART,
   ADD_ITEM_TO_GUEST_CART,
   GET_GUEST_CART,
-  // DELETE_FROM_GUEST_CART,
   CLEAR_USER_CART,
   CLEAR_GUEST_CART,
   DELETE_FROM_GUEST_CART
@@ -14,7 +13,7 @@ import {
 import axios from "axios";
 import { tokenConfig, tokenConfigFormData } from "../actions/authActions";
 import { returnErrors } from "../actions/errorActions";
-
+// get items
 export const getItems = () => (dispatch, getState) => {
   dispatch(setItemsLoading());
   axios
@@ -28,39 +27,8 @@ export const getItems = () => (dispatch, getState) => {
     .catch(err =>
       dispatch(returnErrors(err.response.data, err.response.status))
     );
-  //   .then(myfunction());
-  // function myfunction() {
-  //   const { items } = getState().item;
-  //   const { user } = getState().auth;
-  //   const { isAuthenticated } = getState().auth;
-  //   let existingGuestCart = JSON.parse(localStorage.getItem("guestCart"));
-  //   // added userID to guest cart items
-  //   let newItems =
-  //     isAuthenticated === true &&
-  //     existingGuestCart &&
-  //     existingGuestCart.filter(item => {
-  //       if (item.userRefID !== user._id) {
-  //         item.userRefID = user._id;
-  //       }
-  //       return item;
-  //     });
-  //   let userLocalCompare =
-  //     newItems &&
-  //     newItems.filter(guestItem => {
-  //       return items.some(
-  //         userItem =>
-  //           userItem._id === guestItem._id &&
-  //           guestItem.guestItemID !== userItem.guestItemID
-  //       );
-  //     });
-  //   console.log(userLocalCompare);
-  //   addItemToCart(userLocalCompare);
-  // }
 };
-// export const loadLocalToUser = () => (dispatch, getState) => {
-//   let existingGuestCart = JSON.parse(localStorage.getItem("guestCart"))
-
-// };
+// delete items
 export const deleteItem = id => (dispatch, getState) => {
   axios
     .delete(`/api/items/${id}`, tokenConfig(getState))
@@ -74,6 +42,7 @@ export const deleteItem = id => (dispatch, getState) => {
       dispatch(returnErrors(err.response.data, err.response.status))
     );
 };
+// add product to db
 export const addItem = (newItem, formData) => (dispatch, getState) => {
   const form = Object.keys(newItem).reduce((f, k) => {
     f.append(k, newItem[k]);
@@ -94,6 +63,7 @@ export const addItem = (newItem, formData) => (dispatch, getState) => {
       dispatch(returnErrors(err.response.data, err.response.status))
     );
 };
+// add item to cart
 export const addItemToCart = newItem => (dispatch, getState) => {
   if (newItem.constructor.name === "Object") {
     return axios
@@ -122,12 +92,10 @@ export const addItemToCart = newItem => (dispatch, getState) => {
         );
     });
   }
-  // else if (newItem === []) return null;
 };
+// add item to localstorage for guest cart
 export const addItemToGuestCart = item => dispatch => {
   let existingGuestCart = JSON.parse(localStorage.getItem("guestCart")) || [];
-  // const newGuestItemID = uuid();
-  // item.guestItemID = uuidv4() + shortid.generate();
 
   existingGuestCart.push(item);
   localStorage.setItem("guestCart", JSON.stringify(existingGuestCart));
@@ -137,7 +105,7 @@ export const addItemToGuestCart = item => dispatch => {
     payload: item
   });
 };
-
+// get localstorage cart items
 export const getGuestCartItems = () => dispatch => {
   let existingGuestCart = JSON.parse(localStorage.getItem("guestCart")) || [];
   dispatch({
@@ -145,7 +113,7 @@ export const getGuestCartItems = () => dispatch => {
     payload: existingGuestCart
   });
 };
-
+// delte localstorage guest cart item
 export const deleteGuestItem = item => dispatch => {
   const existingGuestCart = JSON.parse(localStorage.getItem("guestCart"));
   const newGuestCart = existingGuestCart.filter(
@@ -158,6 +126,7 @@ export const deleteGuestItem = item => dispatch => {
     payload: item
   });
 };
+// clearall localstorage
 export const clearGuestCart = () => dispatch => {
   localStorage.clear();
   let existingGuestCart = JSON.parse(localStorage.getItem("guestCart")) || [];
@@ -167,8 +136,8 @@ export const clearGuestCart = () => dispatch => {
     type: CLEAR_GUEST_CART
   });
 };
+// clear user cart
 export const clearUserCart = (user, items) => (dispatch, getState) => {
-  // let existingGuestCart = JSON.parse(localStorage.getItem("guestCart")) || [];
   let newCart = [];
   localStorage.setItem("guestCart", JSON.stringify(newCart));
 
@@ -183,12 +152,7 @@ export const clearUserCart = (user, items) => (dispatch, getState) => {
     payload: user._id
   });
 };
-// export const handleShow = item => {
-//   return {
-//     type: SHOW_MORE,
-//     payload: item
-//   };
-// };
+
 export const setItemsLoading = () => {
   return {
     type: ITEMS_LOADING

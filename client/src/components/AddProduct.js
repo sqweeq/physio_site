@@ -12,6 +12,7 @@ class AddProduct extends Component {
     userRefID: "",
     productImage: ""
   };
+  // submit new product
   handleSubmit = e => {
     e.preventDefault();
 

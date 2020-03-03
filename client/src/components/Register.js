@@ -34,6 +34,7 @@ class Register extends Component {
       [e.target.name]: e.target.value
     });
   };
+  // submit register
   handleSubmit = e => {
     e.preventDefault();
     const { name, email, password } = this.state;
@@ -46,7 +47,7 @@ class Register extends Component {
 
     console.log(newUser);
   };
-
+  // email regex
   validateEmail(email) {
     const regexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regexp.test(email);

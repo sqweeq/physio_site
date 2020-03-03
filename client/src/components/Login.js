@@ -28,7 +28,7 @@ class Login extends Component {
       [e.target.name]: e.target.value
     });
   };
-
+  // submit login
   handleSubmit = e => {
     e.preventDefault();
     const { email, password } = this.state;
@@ -38,9 +38,6 @@ class Login extends Component {
     };
     // attempt to login
     this.props.login(user, this.props.history);
-
-    // this.props.history.push("/");
-    // this.props.();
   };
 
   render() {

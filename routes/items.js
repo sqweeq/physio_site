@@ -3,7 +3,7 @@ const router = express.Router();
 const auth = require("../middleware/auth");
 const bodyParser = require("body-parser");
 router.use(bodyParser.json());
-// const isAdmin = require("../middleware/isAdmin");
+
 // Item Model
 const Item = require("../models/Items");
 const multer = require("multer");
@@ -15,16 +15,10 @@ const storage = multer.diskStorage({
     cb(null, new Date().toISOString() + file.originalname);
   }
 });
-// const fileFilter = (req, file, cb) => {
-//   // reject a file
-//   if (file.mimetype === "image/jpeg" || file.mimetype === "image/png")
-//     cb(null, true);
-//   cb(new Error("image is not jpeg or png"), false);
-// };
+// multer used tor image upload
 const upload = multer({
   storage: storage,
   limits: { fileSize: 1024 * 1024 * 5 }
-  // fileFilter: fileFilter
 });
 // route get api/items, get all items
 router.get("/", (req, res) => {

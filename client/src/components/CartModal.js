@@ -16,7 +16,7 @@ class CartModal extends Component {
   state = {
     itemsCleared: false
   };
-
+  //clear items button interval
   onClearItemsButton() {
     clearInterval(this.state.itemsCleared);
     this.setState(
@@ -32,10 +32,7 @@ class CartModal extends Component {
       }
     );
   }
-  componentDidMount = () => {
-    this.addGuestCartToUser();
-  };
-
+  // clear user cart
   onClearUserCart = (user, items) => {
     this.props.clearUserCart(user, items);
   };
@@ -43,50 +40,11 @@ class CartModal extends Component {
   onClearGuestCart = () => {
     this.props.clearGuestCart();
   };
+  // delete guest cart
   deleteGuestCartItem = item => {
     this.props.deleteGuestItem(item);
     this.props.getGuestCartItems();
   };
-  addGuestCartToUser() {
-    this.props.getItems();
-    const { items } = this.props.item;
-    const { user } = this.props.auth;
-    const { isAuthenticated } = this.props.auth;
-    let existingGuestCart = JSON.parse(localStorage.getItem("guestCart"));
-
-    // added userID to guest cart items
-    let newItems =
-      isAuthenticated &&
-      existingGuestCart &&
-      existingGuestCart.filter(item => {
-        if (item.userRefID !== user._id) {
-          item.userRefID = user._id;
-        }
-        return item;
-      });
-    let userLocalCompare =
-      newItems &&
-      newItems.filter(guestItem => {
-        return items.some(userItem => {
-          return (
-            userItem._id === guestItem._id &&
-            guestItem.guestItemID !== userItem.guestItemID
-          );
-        });
-      });
-
-    // isAuthenticated && this.props.addItemToCart(userLocalCompare);
-    // console.log(
-    //   userLocalCompare && userLocalCompare.map(item => item.guestItemID)
-    // );
-
-    // console.log(
-    //   items &&
-    //     items
-    //       .filter(item => item.guestItemID !== undefined && item.guestItemID)
-    //       .map(item => item.guestItemID)
-    // );
-  }
 
   render() {
     const { items } = this.props.item;
@@ -98,13 +56,13 @@ class CartModal extends Component {
       this.props.getItems();
       this.props.deleteItem(item._id);
     };
-
+    // filter items in db that is the user's
     let cartFilteredItems = isAuthenticated
       ? items.filter(
           item => item.userRefID !== "" && item.userRefID === user._id
         )
       : guestCart;
-
+    // cart math
     let cartTotal =
       cartFilteredItems &&
       cartFilteredItems.reduce((prev, current) => prev + current.price, 0);
@@ -125,15 +83,6 @@ class CartModal extends Component {
         state: cartTotalWithTax
       });
     };
-    let unique = [
-      ...new Set(cartFilteredItems && cartFilteredItems.map(item => item.name))
-    ];
-    // const duplicateCart = unique.map(item => [
-    //   item,
-    //   unique.filter(str => str === item).length
-    // ]);
-    // console.log(unique);
-    // console.log(duplicateCart);
 
     return (
       <div>

@@ -9,12 +9,13 @@ const path = require("path");
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+// require routes
 app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/items", require("./routes/items"));
 app.use("/uploads", express.static("uploads"));
 if (process.env.NODE_ENV === "production") {
-  // Exprees will serve up production assets
+  // Express will serve up production assets
   app.use(express.static("client/build"));
 
   // Express serve up index.html file if it doesn't recognize route
