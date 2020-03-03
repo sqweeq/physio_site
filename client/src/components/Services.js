@@ -17,9 +17,8 @@ export default class Services extends Component {
               />
               <h3 className="py-3">Full Assessment</h3>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel
-                repellat deleniti non sint rem aperiam voluptas amet earum
-                blanditiis at.
+                Accurate diagnostic techniques involving biomechanics, gait,
+                sport specific functional movements and others
               </p>
             </div>
             <div className="col-sm-12 col-md-6 col-lg-4 text-center p-5">
@@ -30,9 +29,11 @@ export default class Services extends Component {
               />
               <h3 className="py-3">Manual Therapy</h3>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel
-                repellat deleniti non sint rem aperiam voluptas amet earum
-                blanditiis at.
+                Application of passive movement to a joint either within
+                ('mobilisation') or beyond its active range of movement
+                ('manipulation'). This includes oscillatory techniques, high
+                velocity low amplitude thrust techniques, sustained stretching
+                and muscle energy techniques.
               </p>
             </div>
             <div className="col-sm-12 col-md-6 col-lg-4 text-center p-5">
@@ -43,9 +44,11 @@ export default class Services extends Component {
               />
               <h3 className="py-3">Soft Tissue Therapy</h3>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel
-                repellat deleniti non sint rem aperiam voluptas amet earum
-                blanditiis at.
+                Soft Tissue Therapy (STT) is the assessment, treatment and
+                management of soft tissue injury, pain, and dysfunction of the
+                musculoskeletal system. A soft tissue therapist will use deep
+                tissue massage skills to treat you along with manual stretching,
+                myofascial release and trigger point therapy.
               </p>
             </div>
             <div className="col-sm-12 col-md-6 col-lg-4 text-center p-5">
@@ -56,9 +59,10 @@ export default class Services extends Component {
               />
               <h3 className="py-3">TENS Therapy</h3>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel
-                repellat deleniti non sint rem aperiam voluptas amet earum
-                blanditiis at.
+                Transcutaneous electrical nerve stimulation (TENS) therapy
+                involves the use of low-voltage electric currents to treat pain.
+                A small device delivers the current at or near nerves. TENS
+                therapy blocks or changes your perception of pain.
               </p>
             </div>
             <div className="col-sm-12 col-md-6 col-lg-4 text-center p-5">
@@ -69,9 +73,11 @@ export default class Services extends Component {
               />
               <h3 className="py-3">Accupuncture</h3>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel
-                repellat deleniti non sint rem aperiam voluptas amet earum
-                blanditiis at.
+                Western Acupuncture is used by physiotherapists to achieve pain
+                relief via the stimulation of the nervous system, such as the
+                brain and spinal cord to produce the body's own pain relieving
+                neuro-chemicals, such as endorphins for pain relief; melatonin
+                to promote sleep and serotonin to promote well being.
               </p>
             </div>
             <div className="col-sm-12 col-md-6 col-lg-4 text-center p-5">
@@ -82,9 +88,12 @@ export default class Services extends Component {
               />
               <h3 className="py-3">Corrective Exercises</h3>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel
-                repellat deleniti non sint rem aperiam voluptas amet earum
-                blanditiis at.
+                Search Results Featured snippet from the web ​Corrective
+                Exercise is a treatment technique that utilizes positions and
+                movement to isolate weak areas of the body. Weakness is rarely
+                due to a muscle shrinking in size, but is more commonly seen as
+                a result of pain in nearby tissue. Pain reduces the function and
+                strength in the surrounding muscles.
               </p>
             </div>
           </div>

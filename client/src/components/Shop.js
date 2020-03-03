@@ -42,7 +42,7 @@ class Shop extends Component {
                 </h4>
 
                 <Button
-                  className="p-1 m-2 w-25"
+                  className="p-1 m-2 w-auto"
                   primary
                   outline
                   data-toggle="modal"

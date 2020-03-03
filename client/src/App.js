@@ -4,7 +4,7 @@ import Homepage from "./components/Homepage";
 import About from "./components/About";
 import Services from "./components/Services";
 import Faq from "./components/Faq";
-import Contact from "./components/Contact";
+// import Contact from "./components/Contact";
 import Shop from "./components/Shop";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -29,7 +29,7 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/services" component={Services} />
           <Route path="/faq" component={Faq} />
-          <Route path="/contact" component={Contact} />
+          {/* <Route path="/contact" component={Contact} /> */}
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route exact path="/shop" component={Shop} />

@@ -34,9 +34,9 @@ export default class Navigation extends Component {
               <Nav.Link className="link mx-2 my-1" href="faq">
                 F.A.Q
               </Nav.Link>
-              <Nav.Link className="link mx-2 my-1" href="contact">
+              {/* <Nav.Link className="link mx-2 my-1" href="contact">
                 Contact
-              </Nav.Link>
+              </Nav.Link> */}
               <Nav.Link className="link mx-2 my-1 pr-3" href="shop">
                 Shop
               </Nav.Link>

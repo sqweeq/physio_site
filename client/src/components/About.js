@@ -21,17 +21,22 @@ export default class About extends Component {
             </div>
             <div className="col-lg-8 col-md-8 col-sm-12 my-auto px-3">
               <div className="d-flex flex-column mx-5 my-auto text-white align-content-center">
-                <h2 className="py-1">Brandon Tsai</h2>
+                <h2 className="py-1 border-bottom">Brandon Tsai</h2>
                 <p className="py-1">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Natus molestias facere cumque quae sapiente vitae at eligendi
-                  maxime, iste, enim optio quas minima! Necessitatibus, nemo?
+                  Born and raised in central Auckland, Brandon has been
+                  practising as a physiotherapist since 2016. Brandon has a
+                  broad range of experience working in hospitals and private
+                  practice. Brandon has experience in manipulative therapy,
+                  assessment of biomechanics and expertise in exercise
+                  prescription. With experience working for several sports
+                  teams, his main interest includes sports injuries specifically
+                  shoulder and lower back rehabilitation.
                 </p>
-                <p className="py-1">
+                {/* <p className="py-1">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Ullam architecto temporibus vitae eveniet dolore modi enim
                   deserunt sed totam dolorum!
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
