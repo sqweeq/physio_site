@@ -7,13 +7,13 @@ import {
   getItems,
   addItem,
   addItemToGuestCart,
-  getGuestCartItems
+  getGuestCartItems,
 } from "../actions/itemActions";
 import shortid from "shortid";
 
 class ProductList extends Component {
   state = {
-    itemToShow: []
+    itemToShow: [],
   };
   componentDidMount() {
     this.props.getGuestCartItems();
@@ -22,16 +22,16 @@ class ProductList extends Component {
     this.setState({ itemToShow: [...this.state.itemToShow, i] }, () => {
       setTimeout(() => {
         this.setState({
-          itemToShow: this.state.itemToShow.filter(item => item !== i)
+          itemToShow: this.state.itemToShow.filter((item) => item !== i),
         });
       }, 3500);
     });
   }
-  onDeleteItem = id => {
+  onDeleteItem = (id) => {
     this.props.deleteItem(id);
   };
   // add to guest cart localstorage
-  onAddToGuestCart = item => {
+  onAddToGuestCart = (item) => {
     item.guestItemID =
       shortid.generate() + String(Math.floor(Math.random() * 30));
 
@@ -47,7 +47,7 @@ class ProductList extends Component {
       category: item.category,
       price: item.price,
       userRefID: user._id,
-      productImage: item.productImage
+      productImage: item.productImage,
     };
 
     this.props.addItemToCart(newItem);
@@ -57,7 +57,8 @@ class ProductList extends Component {
     const { items } = this.props.item;
     const { user } = this.props.auth;
     const { isAuthenticated } = this.props.auth;
-    const filteredItems = items && items.filter(item => item.userRefID === "");
+    const filteredItems =
+      items && items.filter((item) => item.userRefID === "");
 
     return (
       <div>
@@ -117,9 +118,9 @@ class ProductList extends Component {
                         {this.state.itemToShow.includes(i) ? "Saved" : "Add"}
                       </button>
                     )}
-                    {/* <button onClick={() => this.onDeleteItem(item._id)}>
-                      Delete{" "}
-                    </button> */}
+                    <button onClick={() => this.onDeleteItem(item._id)}>
+                      Delete
+                    </button>
                   </div>
                 </div>
               )
@@ -129,9 +130,9 @@ class ProductList extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   item: state.item,
-  auth: state.auth
+  auth: state.auth,
 });
 export default connect(mapStateToProps, {
   deleteItem,
@@ -139,5 +140,5 @@ export default connect(mapStateToProps, {
   addItem,
   getItems,
   addItemToGuestCart,
-  getGuestCartItems
+  getGuestCartItems,
 })(ProductList);

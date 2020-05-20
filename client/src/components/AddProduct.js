@@ -10,10 +10,10 @@ class AddProduct extends Component {
     price: Number,
     category: "",
     userRefID: "",
-    productImage: ""
+    productImage: "",
   };
   // submit new product
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
     const { name, description, price, category, userRefID } = this.state;
@@ -31,7 +31,7 @@ class AddProduct extends Component {
       price,
       category,
       userRefID,
-      productImage: this.img.files[0]
+      productImage: this.img.files[0],
     };
     this.props.addItem(newItem, formData, this.props.history);
     console.log(newItem);
@@ -41,13 +41,15 @@ class AddProduct extends Component {
       name: "",
       description: "",
       price: null,
-      category: ""
+      category: "",
+      userRefID: "",
+      productImage: "",
     });
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
   render() {
@@ -102,7 +104,7 @@ class AddProduct extends Component {
           <div className="form-group">
             <label htmlFor="inputCategory">upload image</label>
             <input
-              ref={c => (this.img = c)}
+              ref={(c) => (this.img = c)}
               name="productImage"
               type="file"
               className="form-control"
