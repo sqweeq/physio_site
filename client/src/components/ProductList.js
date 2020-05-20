@@ -118,9 +118,9 @@ class ProductList extends Component {
                         {this.state.itemToShow.includes(i) ? "Saved" : "Add"}
                       </button>
                     )}
-                    <button onClick={() => this.onDeleteItem(item._id)}>
+                    {/* <button onClick={() => this.onDeleteItem(item._id)}>
                       Delete
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               )
